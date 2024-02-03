@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+import 'package:geolocator/geolocator.dart';
 
 void main() {
   runApp( MyApp());
@@ -7,9 +8,43 @@ void main() {
 
 class MyApp extends StatelessWidget {
   final MapController mapController = MapController(
-    initPosition: GeoPoint(latitude: 37.7749, longitude: -122.4194), // Provide initial position
-    // initMapWithUserPosition: true, // Set to true if you want to initialize with user's position
+    initPosition: GeoPoint(latitude: 10.5544921, longitude: 76.221368), // Provide initial position
+    // initMapWithUserPosition: UserTrackingOption(
+    //   enableTracking: true,
+    //   unFollowUser: false,
+    // ), // Set to true if you want to initialize with user's position
   );
+  final controller = MapController.withPosition(
+            initPosition: GeoPoint(
+              latitude: 10.5544921,
+              longitude: 76.221368,
+          ),
+);
+
+  var currentLatti=10.5544921;
+  var currentLng=76.221368;
+  Future<void> _getLocation() async {
+  try {
+    Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+    currentLatti=position.latitude;
+    currentLng=position.longitude;
+    print('Original GPS Coordinates: ${position.latitude}, ${position.longitude}');
+    // Do something with the original coordinates
+  } catch (e) {
+    print('Error getting location: $e');
+  }
+}
+GeoPoint test = GeoPoint(latitude: 10.5544921, longitude: 76.221368);
+void _addMarker(GeoPoint coordinates, String title) {
+    mapController.addMarker(
+      coordinates,
+      markerIcon: MarkerIcon(icon: Icon(Icons.place,color: Colors.red,)),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,7 +61,7 @@ class MyApp extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.account_circle,color: Colors.white,),
               onPressed: () {
-                // Handle account icon tap
+                print("debug");
               },
             ),
           ],
@@ -37,7 +72,11 @@ class MyApp extends StatelessWidget {
         ),
 
 
-         body:OSMFlutter( 
+         body:
+         Column(
+          children: [
+            Expanded(
+              child:OSMFlutter( 
         controller:mapController,
         osmOption: OSMOption(
               userTrackingOption: const UserTrackingOption(
@@ -45,7 +84,7 @@ class MyApp extends StatelessWidget {
               unFollowUser: false,
             ),
             zoomOption: const ZoomOption(
-                  initZoom: 8,
+                  initZoom: 19,
                   minZoomLevel: 3,
                   maxZoomLevel: 19,
                   stepZoom: 1.0,
@@ -75,10 +114,37 @@ class MyApp extends StatelessWidget {
                       color: Colors.blue,
                       size: 56,
                     ),
-                )
+                ),
             ),
         )
     ),
+            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: ElevatedButton(
+            //     onPressed: () {
+            //       // Locate original GPS coordinates
+            //       _getLocation();
+            //     },
+            //     child: const Icon(Icons.location_on),
+            //   ),
+            // ),
+          ],
+         ),
+         floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            _getLocation();
+            GeoPoint targetCoordinate = GeoPoint(latitude: currentLatti, longitude: currentLng); // Replace with your target coordinates
+            mapController.goToLocation(targetCoordinate);
+            _addMarker(targetCoordinate,"title");
+            // print("test--${currentLatti}, ${currentLng}'");
+            
+          },
+          child: Icon(Icons.location_searching_rounded,color: Colors.white,),
+          backgroundColor: Colors.green,
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+
     ),
       );
   }
