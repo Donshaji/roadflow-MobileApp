@@ -6,7 +6,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final _mapController=MapController();
+  final MapController mapController = MapController(
+    initPosition: GeoPoint(latitude: 37.7749, longitude: -122.4194), // Provide initial position
+    // initMapWithUserPosition: true, // Set to true if you want to initialize with user's position
+  );
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
