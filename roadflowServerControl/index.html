@@ -10,18 +10,18 @@
 <body>
     <nav>
         <h3>RoadFlow</h3>
-            <button onclick="">Prune</button>
+            <button onclick="prune()">Prune</button>
     </nav>
     <section>
-        <form>
+        <form id="inputform">
             <div class="block">
                 <label for="doubleInput1">lattitude</label>
-                <input type="number" step="any" id="doubleInput1" name="doubleInput1" required>
+                <input type="number" step="any" id="lattitude" name="doubleInput1" required>
             </div>
             
             <div class="block">
                 <label for="doubleInput2">Longitude</label>
-                <input type="number" step="any" id="doubleInput2" name="doubleInput2" required>
+                <input type="number" step="any" id="Longitude" name="doubleInput2" required>
             </div>
             
             <div class="block">
@@ -35,14 +35,15 @@
             </div>
             
     
-            <button type="submit">Submit</button>
+            <button onclick="addelm()">Submit</button>
         </form>
     </section>
     <main>
-        <table>
+        <table id="datatable">
             <thead>
                 <tr>
-                    <th>Coordinate</th>
+                    <th>lattitude</th>
+                    <th>Longitude</th>
                     <th>Date</th>
                     <th>Value</th>
                     <th>Action</th>
@@ -50,7 +51,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>1,1</td>
+                    <td>10</td>
+                    <td>70</td>
                     <td>2023-12-01</td>
                     <td>25.5</td>
                     <td><button id="delButton">Delete</button></td>
