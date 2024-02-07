@@ -40,7 +40,7 @@ GeoPoint test = GeoPoint(latitude: 10.5544921, longitude: 76.221368);
 void _addMarker(GeoPoint coordinates, String title) {
     mapController.addMarker(
       coordinates,
-      markerIcon: MarkerIcon(icon: Icon(Icons.place,color: Colors.red,)),
+      markerIcon: const MarkerIcon(icon: Icon(Icons.place,color: Colors.red,)),
     );
   }
 
@@ -51,7 +51,7 @@ void _addMarker(GeoPoint coordinates, String title) {
       home: Scaffold(
         appBar: AppBar(
            leading: IconButton(
-            icon: Icon(Icons.menu,color: Colors.white,), // Options Icon on the left side
+            icon: const Icon(Icons.menu,color: Colors.white,), // Options Icon on the left side
             onPressed: () {
               // Handle menu icon tap
             },
@@ -59,14 +59,14 @@ void _addMarker(GeoPoint coordinates, String title) {
           actions: <Widget>[
             // Account Icon on the right side
             IconButton(
-              icon: Icon(Icons.account_circle,color: Colors.white,),
+              icon: const Icon(Icons.account_circle,color: Colors.white,),
               onPressed: () {
                 print("debug");
               },
             ),
           ],
           backgroundColor: Colors.green,
-          centerTitle: true, title: Text('RoadFlow',
+          centerTitle: true, title: const Text('RoadFlow',
           style:TextStyle(color: Colors.white)),
            // Set the title of the AppBar
         ),
