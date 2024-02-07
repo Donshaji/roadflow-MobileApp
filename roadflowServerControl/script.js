@@ -43,3 +43,25 @@ function addToTable(value1, value2, value3, value4) {
 function prune(){
     console.log("prune!!!");
 }
+
+function enterdataToDb() {
+    // var firestore = firebase.firestore();
+    var geoPoint = new firebase.firestore.GeoPoint(20, 10);
+    firebase.firestore().collection("geopoints").add({
+        dateupdated: "2024/02/07",
+        points: geoPoint,
+        value: 9,
+
+    })
+    .then(() => {
+        alert("User details saved successfully!");
+    })
+    .catch((error) => {
+        alert(`Error saving user details: ${error.message}`);
+    });
+
+}
+
+function showdata(){
+
+}
