@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "354785046851",
+    "project_id": "roadflow-a821a",
+    "storage_bucket": "roadflow-a821a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354785046851:android:ca030b1c7353f7d8f13ff6",
+        "android_client_info": {
+          "package_name": "com.example.roadflow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbpFAcRyNenCLpI87hU6BhcxRBOkqdTjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354785046851:android:80875102d3690dadf13ff6",
+        "android_client_info": {
+          "package_name": "com.roadflow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbpFAcRyNenCLpI87hU6BhcxRBOkqdTjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
