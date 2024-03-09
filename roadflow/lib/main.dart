@@ -3,6 +3,7 @@ import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:roadflow/functions/sidebar.dart';
 
 
 
@@ -14,6 +15,7 @@ runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 
   final MapController mapController = MapController(
@@ -58,13 +60,8 @@ void _addMarker(GeoPoint coordinates, String title) {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        drawer: NavBar(),
         appBar: AppBar(
-           leading: IconButton(
-            icon: const Icon(Icons.menu,color: Colors.white,), // Options Icon on the left side
-            onPressed: () {
-              // Handle menu icon tap
-            },
-          ),
           actions: <Widget>[
             // Account Icon on the right side
             IconButton(
@@ -74,9 +71,7 @@ void _addMarker(GeoPoint coordinates, String title) {
               },
             ),
           ],
-          backgroundColor: Colors.green,
-          centerTitle: true, title: const Text('RoadFlow',
-          style:TextStyle(color: Colors.white)),
+          backgroundColor: Color.fromARGB(255, 76, 175, 79),
            // Set the title of the AppBar
         ),
 
