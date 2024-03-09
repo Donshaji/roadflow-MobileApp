@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:354785046851:android:80875102d3690dadf13ff6",
+        "mobilesdk_app_id": "1:354785046851:android:ca030b1c7353f7d8f13ff6",
         "android_client_info": {
-          "package_name": "com.roadflow"
+          "package_name": "com.example.roadflow"
         }
       },
       "oauth_client": [],

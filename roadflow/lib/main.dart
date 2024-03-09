@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp( MyApp());
+
+
+
+Future<void> main() async {
+WidgetsFlutterBinding.ensureInitialized();
+await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
+
   final MapController mapController = MapController(
     initPosition: GeoPoint(latitude: 10.5544921, longitude: 76.221368), // Provide initial position
     // initMapWithUserPosition: UserTrackingOption(
