@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roadflow/functions/firebasefn.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -10,8 +11,8 @@ class NavBar extends StatelessWidget {
         children: [
           ListTile(
             leading: Icon(Icons.favorite),
-            title: Text('Favorites'),
-            onTap: () => null,
+            title: Text('get data'),
+            onTap: () => readDataFromFirestore(),
           ),
           ListTile(
             leading: Icon(Icons.person),

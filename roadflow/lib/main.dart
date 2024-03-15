@@ -7,7 +7,6 @@ import 'package:roadflow/functions/sidebar.dart';
 
 
 
-
 Future<void> main() async {
 WidgetsFlutterBinding.ensureInitialized();
 await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -15,8 +14,6 @@ runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
 
   final MapController mapController = MapController(
     initPosition: GeoPoint(latitude: 10.5544921, longitude: 76.221368), // Provide initial position
@@ -150,6 +147,11 @@ void _addMarker(GeoPoint coordinates, String title) {
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
 
     ),
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+        iconTheme: IconThemeData(color: Colors.white), // Set icon color to white
+        ),
+      ),
       );
   }
 }

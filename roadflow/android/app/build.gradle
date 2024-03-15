@@ -72,6 +72,8 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.0'
     implementation platform('com.google.firebase:firebase-bom:32.7.1')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.android.application'
+    implementation 'com.google.gms.google-services'
 }
 
 apply plugin: 'com.android.application'

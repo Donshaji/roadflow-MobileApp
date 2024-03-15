@@ -36,6 +36,7 @@ dependencies:
   flutter_osm_plugin: ^0.70.4
   geolocator: ^10.1.0
   firebase_core: ^2.27.0
+  cloud_firestore: 4.15.8
 
 dev_dependencies:
   flutter_test:
